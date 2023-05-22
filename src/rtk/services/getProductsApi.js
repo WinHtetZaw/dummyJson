@@ -7,15 +7,25 @@ export const getProductsApi = createApi({
   }),
   tagTypes: ["products"],
   endpoints: (builder) => ({
-    getAllProducts: builder.query({
-      query: () => "/products",
-      providesTags: ["products"],
-    }),
+    // getAllProducts: builder.query({
+    //   query: () => "/products",
+    //   providesTags: ["products"],
+    // }),
     getSingleProduct: builder.query({
       query: (id) => `/products/${id}`,
-      providesTags : ["products"]
+      providesTags: ["products"],
+    }),
+    getPaginateProducts: builder.query({
+      query: ({ skip, limit }) => ({
+        url : `/products/?skip=${skip}&&limit=${limit}`,
+      }),
+      providesTags: ["products"],
     }),
   }),
 });
 
-export const { useGetAllProductsQuery,useGetSingleProductQuery } = getProductsApi;
+export const {
+  // useGetAllProductsQuery,
+  useGetSingleProductQuery,
+  useGetPaginateProductsQuery,
+} = getProductsApi;
