@@ -13,7 +13,7 @@ const Home = () => {
         <Link to={'/products/?skip=0&&limit=10'}>
           <Button className=" bg-blue-500">All products</Button>
         </Link>
-        {/* <Loading/> */}
+        <Loading/>
         <CarouselDisplay/>
       </div>
     </div>

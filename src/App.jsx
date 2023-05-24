@@ -1,21 +1,29 @@
-import React from "react";
-import Path from "./routes/Path";
-import Navbar from "./navbar/Navbar";
-import { useLocation } from "react-router-dom";
-// import Paginate from './components/Paginate'
+
+import { Route, Router, RouterProvider, createBrowserRouter, createRoutesFromElements, useLocation } from "react-router-dom";
+import Home from "./components/Home";
+import RootLayout from "./layouts/RootLayout";
+import ProductFetching from "./components/ProductFetching";
 
 const App = () => {
-  const location = useLocation();
-  const hasKey = location.key;
-  const showNavbar = location.key !== "default" || location.pathname === '/'
-  console.log(location);
+;
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<RootLayout/>}>
+        <Route index element={<Home/>}/>
+        <Route path="/products"  element={<ProductFetching/>} />
+
+      </Route>
+    )
+  )
   return (
-    <div className="">
-      <div className="">
-        {showNavbar && <Navbar />}
-        <Path />
-      </div>
-    </div>
+    // <div className="">
+    //   <div className="">
+    //     {showNavbar && <Navbar />}
+    //     <Path />
+    //   </div>
+    // </div>
+    <RouterProvider router={router}/>
   );
 };
 
