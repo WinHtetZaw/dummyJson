@@ -13,6 +13,8 @@ body {
   animation: mymove 2.5s infinite;
 }
 
+
+
 @keyframes mymove {
   33% {
     top: 0px;
@@ -23,4 +25,8 @@ body {
   100% {
     top: 0px;
   }
+}
+
+.active {
+  text-decoration: underline;
 }

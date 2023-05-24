@@ -1,8 +1,8 @@
 import { Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import React, { useState } from "react";
-import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const NavbarMenu = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -54,16 +54,19 @@ const NavbarMenu = () => {
               e.stopPropagation();
             }}
           >
-            <Link to={"/"}>
-              <li className=" py-1 px-3 md:p-0 bg-slate-300 md:bg-white border md:border-none md:hover:underline  md:rounded-none m-2 md:m-0 rounded text-center">
+            
+            <NavLink to={"/"}>
+              <motion.li 
+              whileHover={{scale:1.1}}
+              className=" py-1 px-3 md:p-0 bg-slate-300 md:bg-white border md:border-none md:rounded-none m-2 md:m-0 rounded text-center">
                 Home
-              </li>
-            </Link>
-            <Link to={"/products/?skip=0&&limit=10"}>
+              </motion.li>
+            </NavLink>
+            <NavLink to={"/products/?skip=0&&limit=10"}>
               <li className=" py-1 px-3 md:p-0 bg-slate-300 md:bg-white border md:border-none md:hover:underline  md:rounded-none m-2 md:m-0 rounded text-center">
                 All Products
               </li>
-            </Link>
+            </NavLink>
             <li className=" py-1 px-3 md:p-0 bg-slate-300 md:bg-white border md:border-none md:hover:underline  md:rounded-none m-2 md:m-0 rounded text-center">
               Category
             </li>

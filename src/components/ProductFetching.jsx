@@ -3,6 +3,27 @@ import Product from "./Product";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "./Paginate";
 import Loading from "./Loading";
+import { motion } from "framer-motion";
+
+// const container = {
+//   hidden: { opacity: 1, scale: 0 },
+//   visible: {
+//     opacity: 1,
+//     scale: 1,
+//     transition: {
+//       delayChildren: 0.3,
+//       staggerChildren: 0.2,
+//     },
+//   },
+// };
+
+// const item = {
+//   hidden: { y: 20, opacity: 0 },
+//   visible: {
+//     y: 0,
+//     opacity: 1,
+//   },
+// };
 
 const ProductFetching = () => {
   // const { data } = useGetAllProductsQuery();
@@ -30,8 +51,15 @@ const ProductFetching = () => {
 
   return (
     <div className=" mt-24">
+      <Paginate />
+
       <div className=" mt-5 sm:mt-10">
-        <div className=" flex flex-wrap justify-center gap-5 sm:gap-10">
+        <div
+          // variants={container}
+          // initial="hidden"
+          // animate="visible"
+          className=" flex flex-wrap justify-center gap-5 sm:gap-10"
+        >
           {/* {hasParams ? productLoopingPaginate : productLooping}  */}
           {productLoopingPaginate}
         </div>
