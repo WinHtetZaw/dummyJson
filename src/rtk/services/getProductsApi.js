@@ -17,7 +17,12 @@ export const getProductsApi = createApi({
     }),
     getPaginateProducts: builder.query({
       query: ({ skip, limit }) => ({
-        url : `/products/?skip=${skip}&&limit=${limit}`,
+        // url : `/products/?skip=${skip}&&limit=${limit}`,
+        url:
+          skip != null
+            ? `/products/?skip=${skip}&&limit=${limit}`
+            : `/products/?skip=0&&limit=10`,
+        // skip ? `/products/?skip=${skip}&&limit=${limit}` : `/products/?skip=0&&limit=10`
       }),
       providesTags: ["products"],
     }),

@@ -62,7 +62,7 @@ const NavbarMenu = () => {
                 Home
               </motion.li>
             </NavLink>
-            <NavLink to={"/products/?skip=0&&limit=10"}>
+            <NavLink to={"/products"}>
               <li className=" py-1 px-3 md:p-0 bg-slate-300 md:bg-white border md:border-none md:hover:underline  md:rounded-none m-2 md:m-0 rounded text-center">
                 All Products
               </li>

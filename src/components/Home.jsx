@@ -3,6 +3,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Loading from "./Loading";
 import CarouselDisplay from "./CarouselDisplay";
+import ProductFetching from "./ProductFetching";
 
 const Home = () => {
   const location = useLocation()
@@ -10,11 +11,9 @@ const Home = () => {
   return (
     <div>
       <div className="">
-        <Link to={'/products/?skip=0&&limit=10'}>
-          <Button className=" bg-blue-500">All products</Button>
-        </Link>
-        <Loading/>
-        <CarouselDisplay/>
+        <ProductFetching/>
+        {/* <Loading/> */}
+        {/* <CarouselDisplay/> */}
       </div>
     </div>
   );
